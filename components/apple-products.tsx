@@ -1,7 +1,6 @@
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import Image from 'next/image'
 
 const products = [
   { name: "Macintosh", year: 1984, emoji: "🖥️", description: "革命性的个人电脑，引入图形用户界面。" },

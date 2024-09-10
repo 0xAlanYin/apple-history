@@ -4,6 +4,13 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
+interface StockDataPoint {
+  year: number;
+  price: number;
+  marketCap: number;
+  event: string;
+}
+
 const stockHistory = [
   { year: 1980, price: 0.10, marketCap: 1.8, event: "苹果公司首次公开募股 (IPO)" },
   { year: 1985, price: 0.41, marketCap: 2.3, event: "史蒂夫·乔布斯离开苹果" },
@@ -18,9 +25,9 @@ const stockHistory = [
 ];
 
 export function AppleStockHistory() {
-  const [selectedPoint, setSelectedPoint] = useState(null);
+  const [selectedPoint, setSelectedPoint] = useState<StockDataPoint | null>(null);
 
-  const handleMouseEnter = (data, index) => {
+  const handleMouseEnter = (data: StockDataPoint) => {
     setSelectedPoint(data);
   };
 
